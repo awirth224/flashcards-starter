@@ -24,8 +24,12 @@ describe('Deck', () => {
     expect(deck1).to.be.an.instanceOf(Deck)
   })
 
-  it.skip('Should ', () => {
-    expect().to.equal()
+  it('Should have an array of cards', () => {
+    expect(deck1.cards).to.deep.equal([card1, card2, card3])
+  })
+
+  it('Should have a method that counts how many cards are in the deck', () => {
+    expect(deck1.countCards()).to.equal(3)
   })
 
 })
