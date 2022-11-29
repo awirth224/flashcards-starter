@@ -20,14 +20,30 @@ describe('Turn', () => {
     expect(turn1).to.be.an.instanceOf(Turn)
   })
 
+  it('Should have a user guess', () => {
+    expect(turn1.userGuess).to.equal()
+  })
+
+  it('Should have a current card', () => {
+    expect(turn1.currentCard).to.equal()
+  })
+
+  it('Should have a property that says whether the user guess is false', () => {
+    expect(turn1.correct).to.equal(false)
+  })
+
   it('Should have a method that returns the guess', () => {
-    returnGuess()
-    expect(turn1.returnGuess()).to.equal()
+    expect(turn1.returnGuess()).to.equal('object')
   })
 
   it('Should have a method that returns the card', () => {
-    returnCard()
-    expect(turn1.returnCard()).to.equal()
+    expect(turn1.returnCard()).to.equal(card1)
   })
+
+  it('Should have a method that evaluates whether the user\'s guess is correct', () => {
+    expect(turn1.correct).to.equal(true)
+    expect(turn1.evaluateGuess()).to.equal(true)
+  })
+  
 
 })
