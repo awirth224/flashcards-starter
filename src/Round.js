@@ -13,20 +13,21 @@ class Round {
 
   takeTurn(userGuess) {
     this.turnCount += 1
-    let currentTurn = new Turn(userGuess, this.deck[0])
+    let currentTurn = new Turn(userGuess, this.deck.cards[0])
     currentTurn.evaluateGuess()
     currentTurn.giveFeedback()
 
-    if (this.currentTurn.correct === false) {
-      this.incorrectGuesses.push(this.currentTurn.currentCard.id)
+    if (currentTurn.correct === false) {
+      this.incorrectGuesses.push(currentTurn.currentCard.id)
     }
-
-    this.deck.shift()
-    console.log('LABEL', this.deck)
+    
+    this.deck.cards.shift()
+    return this.deck
   }
 
   calculatePercentCorrect() {
-    const total = this.incorrectGuesses.length / this.deck.length
+    this.takeTurn()
+    const total = this.incorrectGuesses.length / this.turnCount
     const percent = total * 100
     return percent
   }
