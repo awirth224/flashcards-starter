@@ -22,12 +22,12 @@ describe('Round', () => {
     card2 = new Card(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array")
     card3 = new Card(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method")
     card4 = new Card(4, "What type of prototype method does not modify the existing array but returns a particular representation of the array?", ["mutator method", "accessor method", "iteration method"], "accessor method")
-    turn1 = new Turn('object', card1)
+    turn1 = new Turn('array', card1)
     turn2 = new Turn('object', card2)
     turn3 = new Turn('accessor method', card3)
     turn4 = new Turn ('accessor method', card4)
     deck1 = new Deck([card1, card2, card3, card4])
-    round1 = new Round()
+    round1 = new Round(deck1)
   })
 
   it('Should be a function', () => {
@@ -46,28 +46,26 @@ describe('Round', () => {
     expect(round1.turnCount).to.equal(0)
   })
 
-  // it('Should have a current turn', () => {
-  //   expect(round1.currentTurn).to.equal(turn1)
-  // })
-
-  it.skip('Should have an array of incorrect guesses', () => {
+  it('Should have an array of incorrect guesses', () => {
     expect(round1.incorrectGuesses).to.deep.equal([])
   })
 
-  it.skip('Should have a method that returns the current card being played', () => {
-    expect(round1.returnCurrentCard()).to.equal(deck[0])
+  it('Should have a method that returns the current card being played', () => {
+    expect(round1.returnCurrentCard()).to.equal(deck1[0])
   })
 
-  it.skip('Should have a method that updates the turn count', () => {
-    expect(round1.takeTurn()).to.equal(1)
+  it('Should have a method that updates the turn count', () => {
+    round1.takeTurn()
+    expect(round1.turnCount).to.equal(1)
+    expect(this.incorrectGuesses).to.deep.equal(1)
   })
 
-  it.skip('Should have a method that calculates the percentage of correct answers', () => {
-    expect(round1.calculatePercentCorrect()).to.equal()
+  it('Should have a method that calculates the percentage of correct answers', () => {
+    expect(round1.calculatePercentCorrect()).to.equal(100)
   })
 
-  it.skip('Should have a method that ends the round and reports that percent of questions answered correctly', () => {
-    expect(round1.endRound()).to.equal()
+  it('Should have a method that ends the round and reports that percent of questions answered correctly', () => {
+    expect(round1.endRound()).to.equal(100)
   })
 
 })
