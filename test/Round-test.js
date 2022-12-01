@@ -50,23 +50,23 @@ describe('Round', () => {
   //   expect(round1.currentTurn).to.equal(turn1)
   // })
 
-  it('Should have an array of incorrect guesses', () => {
+  it.skip('Should have an array of incorrect guesses', () => {
     expect(round1.incorrectGuesses).to.deep.equal([])
   })
 
-  it('Should have a method that returns the current card being played', () => {
+  it.skip('Should have a method that returns the current card being played', () => {
     expect(round1.returnCurrentCard()).to.equal(deck[0])
   })
 
-  it('Should have a method that updates the turn count', () => {
+  it.skip('Should have a method that updates the turn count', () => {
     expect(round1.takeTurn()).to.equal(1)
   })
 
-  it('Should have a method that calculates the percentage of correct answers', () => {
+  it.skip('Should have a method that calculates the percentage of correct answers', () => {
     expect(round1.calculatePercentCorrect()).to.equal()
   })
 
-  it('Should have a method that ends the round and reports that percent of questions answered correctly', () => {
+  it.skip('Should have a method that ends the round and reports that percent of questions answered correctly', () => {
     expect(round1.endRound()).to.equal()
   })
 

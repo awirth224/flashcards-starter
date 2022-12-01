@@ -20,8 +20,6 @@ class Round {
 
     if (this.currentTurn.correct === false) {
       this.incorrectGuesses.push(this.currentTurn.currentCard.id)
-    } else {
-      this.correctGuesses.push(this.currentTurn.currentCard.id)
     }
   }
 
