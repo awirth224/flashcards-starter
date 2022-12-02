@@ -21,7 +21,6 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    this.takeTurn()
     const total = this.incorrectGuesses.length / this.turnCount
     const percent = total * 100
     return percent
