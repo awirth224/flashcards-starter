@@ -1,10 +1,10 @@
 const chai = require('chai');
 const expect = chai.expect;
+const Game = require('../src/Game');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
-const Round = require('../src/Round')
-const Game = require('../src/Game')
+const Round = require('../src/Round');
 
 describe('Game', () => {
   let card1
@@ -22,7 +22,8 @@ describe('Game', () => {
     card4 = new Card(4, "What type of prototype method does not modify the existing array but returns a particular representation of the array?", ["mutator method", "accessor method", "iteration method"], "accessor method")
     turn1 = new Turn('array', card1)
     deck1 = new Deck([card1, card2, card3, card4])
-    round1 = new Round(deck)
+    round1 = new Round(deck1)
+    game1 = new Game(round1)
   })
 
   it('Should be a function', () => {
@@ -32,14 +33,17 @@ describe('Game', () => {
   it('Should be a new instance of Game', () => {
     expect(game1).to.be.an.instanceOf(Game)
   })
-  
-  it('Should have a current round', () => {
-    expect(game1.currentRound).to.equal()
+
+  it('Should have a method that creates new instances of cards', () => {
+    expect(game1.createCards()[0]).to.deep.equal(card1)
   })
 
-  it('Should have a method that starts the game', () => {
-    expect(game1.start()).to.equal()
+  it('Should have a method that creates a new instance of deck', () => {
+    expect(game1.createDeck().cards[0]).to.deep.equal(deck1.cards[0])
   })
 
+  it('Should have a method that creates a new instance of round', () => {
+    expect(game1.createRound()).to.be.an.instanceOf(Round)
+  })
 
 })

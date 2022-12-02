@@ -4,8 +4,7 @@ class Deck {
   }
 
   countCards() {
-    let length = this.cards.length
-    return length
+    return this.cards.length
   }
 
 }
